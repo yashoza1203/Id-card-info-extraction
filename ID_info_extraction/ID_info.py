@@ -157,7 +157,7 @@ class ID_EXTRACT:
             csv_writer.writerow(student_data)
 
     def main(self,id_path,file_path):
-        im1 = cv2.imread("ID_info_extraction\static\ID.jpg")
+        im1 = cv2.imread("static\ID.jpg")
         im1 = cv2.cvtColor(im1,cv2.COLOR_BGR2RGB)
         im2 = cv2.imread(id_path)
         im2 = cv2.cvtColor(im2,cv2.COLOR_BGR2RGB)
