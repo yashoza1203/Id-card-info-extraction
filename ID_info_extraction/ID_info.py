@@ -11,6 +11,8 @@ from PIL import Image
 # from tkinter import Tk, filedialog
 import pandas as pd
 import datetime
+import requests
+from io import BytesIO
 import streamlit as st 
 
 class ID_EXTRACT:
@@ -157,9 +159,11 @@ class ID_EXTRACT:
             csv_writer.writerow(student_data)
 
     def main(self,id_path,file_path):
-        im1_path = "./static/ID.jpg"
-        im1 = cv2.imread(im1_path)
-        im1 = cv2.cvtColor(im1,cv2.COLOR_BGR2RGB)
+        url = 'https://raw.githubusercontent.com/yashoza1203/Id-card-info-extraction/main/ID_info_extraction/static/ID.jpg'
+        response = requests.get(url)
+        img1 = Image.open(BytesIO(response.content))
+        im1 = np.array(img1)
+
         im2 = cv2.imread(id_path)
         im2 = cv2.cvtColor(im2,cv2.COLOR_BGR2RGB)
 
