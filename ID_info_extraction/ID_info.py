@@ -188,7 +188,8 @@ submit = st.button('Extract Information')
 
 if submit:
     if query_image is not None:
-        folder_path = idd.choose_folder_dialog()
+        # folder_path = idd.choose_folder_dialog()
+        folder_path = os.getcwd() + '/static/'
         folder_path = folder_path + '/'
         file_path = idd.create_csv_file(folder_path,file_name)
         csv_path = os.getcwd().replace('\\','/') + '/static/' + file_name
