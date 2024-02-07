@@ -8,7 +8,7 @@ import time
 import os
 import csv
 from PIL import Image
-from tkinter import Tk, filedialog
+# from tkinter import Tk, filedialog
 import pandas as pd
 import datetime
 import streamlit as st 
