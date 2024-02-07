@@ -157,7 +157,7 @@ class ID_EXTRACT:
             csv_writer.writerow(student_data)
 
     def main(self,id_path,file_path):
-        im1_path = "https://raw.githubusercontent.com/yashoza1203/Id-card-info-extraction/tree/main/ID_info_extraction/static/ID.jpg"
+        im1_path = "./static/ID.jpg"
         im1 = cv2.imread(im1_path)
         im1 = cv2.cvtColor(im1,cv2.COLOR_BGR2RGB)
         im2 = cv2.imread(id_path)
