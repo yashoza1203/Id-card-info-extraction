@@ -8,13 +8,13 @@ import time
 import os
 import csv
 from PIL import Image
-# from tkinter import Tk, filedialog
 import pandas as pd
 import datetime
 import requests
 from io import BytesIO
 import streamlit as st 
 import shutil
+import helpers.tesseract as tesseract
 
 class ID_EXTRACT:
     def __init__(self,tesseract_cmd):
@@ -176,17 +176,6 @@ class ID_EXTRACT:
 
 
 start_time = time.time()
-
-@st.cache_resource
-def find_tesseract_binary() -> str:
-    return shutil.which("tesseract")
-
-# set tesseract binary path
-tesseract_cmd = find_tesseract_binary()
-if not pytesseract.pytesseract.tesseract_cmd:
-    st.error("Tesseract binary not found in PATH. Please install Tesseract.")
-else:
-    st.write(tesseract_cmd)
 
 import os
 tesseract_cmd = os.path.join(os.path.dirname(__file__), "path", "to", "tesseract")
