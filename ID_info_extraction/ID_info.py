@@ -62,7 +62,7 @@ class ID_EXTRACT:
         return binary_image
 
     def img2text(self,img):
-        info = pytesseract.image_to_string(img,config=self.custom_config)
+        info = pytesseract.image_to_string(img,config=self.custom_config,lang='eng')
         return info
 
     def roi_from_id(self,im2_reg):
