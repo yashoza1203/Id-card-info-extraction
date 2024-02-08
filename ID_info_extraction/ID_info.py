@@ -211,10 +211,12 @@ if submit:
         img_path = 'static/' + img_path
 
         idd.main(image,file_path)
-        # pd.to_datetime("20/01/2023", format="%d/%m/%Y") 
         
         data = pd.read_csv(csv_path,parse_dates=['Attending Date','Attending Time'],index_col=0)
         data.drop(data.filter(regex="Unname"),axis=1, inplace=True)
+        data['Attending Date'] = pd.to_datetime(data['Attending Date'], format="%d/%m/%Y")
+        data['Attending Time'] = pd.to_datetime(data['Attending Time'], format="%H:%M:%S")
+        
         st.subheader('Raw data')
         data = data.style.format(thousands='')
         st.dataframe(data ,use_container_width=True)
