@@ -135,6 +135,8 @@ class ID_EXTRACT:
         return file_path
 
     def append_into_csv(self,file_path,student_data):
+        ist = pytz.timezone("Asia/Kolkata")
+        now=datetime.datetime.now(ist)
         now=datetime.datetime.now()
         current_date=now.strftime('%x')
         current_time=now.strftime('%X')
@@ -211,8 +213,6 @@ if submit:
         pd.to_datetime("20/01/2023", format="%d/%m/%Y") 
         
         data = pd.read_csv(csv_path,parse_dates=['Attending Date','Attending Time'],index_col=0)
-        data.tz_localize('IST')
-
         data.drop(data.filter(regex="Unname"),axis=1, inplace=True)
         st.subheader('Raw data')
         data = data.style.format(thousands='')
