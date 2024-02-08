@@ -21,7 +21,7 @@ class ID_EXTRACT:
         self.custom_config = r'--oem 3 --psm 6'
         pytesseract.pytesseract.tesseract_cmd = 'tesseract'
         self.sift = cv2.SIFT_create()
-        self.characters_to_remove = ['|', '\n', 'i','i\n']
+        self.characters_to_remove = ['|', '\n', 'i','i\n','[',']']
 
     def get_processed_image(self,im1,im2):
         im1_gray = cv2.cvtColor(im1, cv2.COLOR_BGR2GRAY)
