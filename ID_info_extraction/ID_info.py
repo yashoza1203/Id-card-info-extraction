@@ -16,7 +16,8 @@ from io import BytesIO
 import streamlit as st 
 
 class ID_EXTRACT:
-    def __init__(self):
+    def __init__(self,tesseract_cmd):
+        pytesseract.pytesseract.tesseract_cmd = tesseract_cmd
         self.sift = cv2.SIFT_create()
         self.characters_to_remove = ['|', '\n', 'i','i\n']
 
@@ -175,7 +176,16 @@ class ID_EXTRACT:
 
 start_time = time.time()
 
-idd = ID_EXTRACT()
+@st.cache_resource
+def find_tesseract_binary() -> str:
+    return shutil.which("tesseract")
+
+# set tesseract binary path
+tesseract_cmd = find_tesseract_binary()
+if not pytesseract.pytesseract.tesseract_cmd:
+    st.error("Tesseract binary not found in PATH. Please install Tesseract.")
+
+idd = ID_EXTRACT(tesseract_cmd)
 
 st.title("Extract details from ID")
 st.markdown("## By:- Dev, Yash and Rushank 🤘")
