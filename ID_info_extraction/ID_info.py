@@ -186,6 +186,7 @@ tesseract_cmd = find_tesseract_binary()
 if not pytesseract.pytesseract.tesseract_cmd:
     st.error("Tesseract binary not found in PATH. Please install Tesseract.")
 
+st.write(tesseract_cmd)
 idd = ID_EXTRACT(tesseract_cmd)
 
 st.title("Extract details from ID")
