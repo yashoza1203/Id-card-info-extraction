@@ -59,7 +59,8 @@ class ID_EXTRACT:
     def get_thresh(self,img):
         gray_image = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
         _, binary_image = cv2.threshold(gray_image, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
-        return binary_image
+        result = 255 - thresh
+        return result
 
     def img2text(self,img):
         info = pytesseract.image_to_string(img,config=self.custom_config,lang='eng')
