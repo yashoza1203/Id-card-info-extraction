@@ -180,7 +180,7 @@ start_time = time.time()
 
 st.sidebar.write(tesseract.find_tesseract_binary())
 
-idd = ID_EXTRACT(tesseract_cmd)
+idd = ID_EXTRACT()
 
 st.title("Extract details from ID")
 st.markdown("## By:- Dev, Yash and Rushank 🤘")
