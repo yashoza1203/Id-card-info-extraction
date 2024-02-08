@@ -214,10 +214,10 @@ if submit:
         
         data = pd.read_csv(csv_path,parse_dates=['Attending Date','Attending Time'],index_col=0)
         data.drop(data.filter(regex="Unname"),axis=1, inplace=True)
-        data['Attending Date'] = pd.to_datetime(data['Attending Date'], format="%Y-%m-%d").dt.strftime("%d %b %y")
+        data['Attending Date'] = pd.to_datetime(data['Attending Date'], format="%Y-%m-%d").dt.strftime("%d/%m/%y")
         data['Attending Date'] = data['Attending Date'].astype(str)
         
-        data['Attending Time'] = pd.to_datetime(data['Attending Time'], format="%H:%M:%S").dt.strftime("%H %M %S")
+        data['Attending Time'] = pd.to_datetime(data['Attending Time'], format="%H:%M:%S").dt.strftime("%H:%M:%S")
         data['Attending Time'] = data['Attending Time'].astype(str)
         
         st.subheader('Raw data')
