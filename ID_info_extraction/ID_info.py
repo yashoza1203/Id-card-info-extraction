@@ -18,6 +18,7 @@ import helpers.tesseract as tesseract
 
 class ID_EXTRACT:
     def __init__(self,tesseract_cmd):
+        self.custom_config = r'--oem 3 --psm 6'
         pytesseract.pytesseract.tesseract_cmd = 'tesseract'
         self.sift = cv2.SIFT_create()
         self.characters_to_remove = ['|', '\n', 'i','i\n']
@@ -61,7 +62,7 @@ class ID_EXTRACT:
         return binary_image
 
     def img2text(self,img):
-        info = pytesseract.image_to_string(img,lang="eng")
+        info = pytesseract.image_to_string(img,config=self.custom_config)
         return info
 
     def roi_from_id(self,im2_reg):
