@@ -18,7 +18,12 @@ import helpers.tesseract as tesseract
 
 class ID_EXTRACT:
     def __init__(self):
-        self.custom_config = r'--psm 6'
+        self.custom_config = options = (
+            f"-l {self.lang} --psm {self.psm} --oem {self.cfg.ocr.pytesseract.oem} "
+            f"-c thresholding_method={self.cfg.ocr.pytesseract.thresh} "
+            f"-c tessedit_char_whitelist='{self.cfg.ocr.pytesseract.whitelist}' "
+        )
+        
         pytesseract.pytesseract.tesseract_cmd = tesseract.find_tesseract_binary()
         self.sift = cv2.SIFT_create()
         self.characters_to_remove = ['|', '\n', 'i','i\n','[',']']
