@@ -158,14 +158,12 @@ class ID_EXTRACT:
             csv_writer = csv.writer(csvfile)
             csv_writer.writerow(student_data)
 
-    def main(self,id_path,file_path):
+    def main(self,image,file_path):
         url = 'https://raw.githubusercontent.com/yashoza1203/Id-card-info-extraction/main/ID_info_extraction/static/ID.jpg'
         response = requests.get(url)
         img1 = Image.open(BytesIO(response.content))
         im1 = np.array(img1)
-
-        im2 = cv2.imread(id_path)
-        im2 = cv2.cvtColor(im2,cv2.COLOR_BGR2RGB)
+        im2 = np.array(image)
 
         final_image = self.get_processed_image(im1,im2)
         name_th,sap_th,year_th,course_th = self.roi_from_id(final_image)
@@ -207,7 +205,7 @@ if submit:
         img_path = query_image.name
         img_path = 'static/' + img_path
 
-        idd.main(img_path,file_path)
+        idd.main(image,file_path)
         data = pd.read_csv(csv_path,parse_dates=['Attending Date','Attending Time'],index_col=0)
         data.drop(data.filter(regex="Unname"),axis=1, inplace=True)
         st.subheader('Raw data')
