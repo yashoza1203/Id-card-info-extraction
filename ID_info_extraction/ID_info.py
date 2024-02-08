@@ -86,6 +86,10 @@ class ID_EXTRACT:
         yearr = self.img2text(year_th)
         coursee = self.img2text(course_th)
 
+        st.sidebar.write(sap_idd)
+        st.sidebar.write(yearr)
+        st.sidebar.write(coursee)
+        
         filtered_characters = filter(lambda x: x not in self.characters_to_remove, namee)
         name = ''.join(filtered_characters)
 
