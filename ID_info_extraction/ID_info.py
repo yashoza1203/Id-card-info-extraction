@@ -87,6 +87,7 @@ class ID_EXTRACT:
         yearr = self.img2text(year_th)
         coursee = self.img2text(course_th)
 
+        st.sidebar.write(namee)
         st.sidebar.write(sap_idd)
         st.sidebar.write(yearr)
         st.sidebar.write(coursee)
