@@ -17,8 +17,6 @@ import streamlit as st
 
 class ID_EXTRACT:
     def __init__(self):
-        self.custom_config = r'--oem 3 --psm 6'
-        pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
         self.sift = cv2.SIFT_create()
         self.characters_to_remove = ['|', '\n', 'i','i\n']
 
@@ -61,7 +59,7 @@ class ID_EXTRACT:
         return binary_image
 
     def img2text(self,img):
-        info = pytesseract.image_to_string(img,config=self.custom_config)
+        info = pytesseract.image_to_string(img,lang="eng")
         return info
 
     def roi_from_id(self,im2_reg):
