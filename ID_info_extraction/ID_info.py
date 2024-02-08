@@ -15,6 +15,7 @@ from io import BytesIO
 import streamlit as st 
 import shutil
 import helpers.tesseract as tesseract
+import pytz
 
 class ID_EXTRACT:
     def __init__(self):
