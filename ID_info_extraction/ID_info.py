@@ -14,6 +14,7 @@ import datetime
 import requests
 from io import BytesIO
 import streamlit as st 
+import shutil
 
 class ID_EXTRACT:
     def __init__(self,tesseract_cmd):
