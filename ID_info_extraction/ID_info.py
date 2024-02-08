@@ -138,7 +138,6 @@ class ID_EXTRACT:
     def append_into_csv(self,file_path,student_data):
         ist = pytz.timezone("Asia/Kolkata")
         now=datetime.datetime.now(ist)
-        now=datetime.datetime.now()
         current_date=now.strftime('%x')
         current_time=now.strftime('%X')
         if student_data[4] != 0:
