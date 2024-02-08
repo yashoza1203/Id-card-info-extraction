@@ -60,7 +60,7 @@ class ID_EXTRACT:
         gray_image = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
         _, binary_image = cv2.threshold(gray_image, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
         result = 255 - binary_image
-        return result
+        return binary_image,result
 
     def img2text(self,img):
         info = pytesseract.image_to_string(img,config=self.custom_config,lang='eng')
@@ -72,10 +72,10 @@ class ID_EXTRACT:
         year_img = im2_reg[50:100,850:]
         course_img = im2_reg[440:500,300:750]
 
-        name_th = self.get_thresh(name_img)
-        sap_th =  self.get_thresh(sap_id_img)
-        year_th = self.get_thresh(year_img)
-        course_th = self.get_thresh(course_img)
+        name_th,_ = self.get_thresh(name_img)
+        _,sap_th =  self.get_thresh(sap_id_img)
+        _,year_th = self.get_thresh(year_img)
+        _,course_th = self.get_thresh(course_img)
 
         return name_th,sap_th,year_th,course_th
 
