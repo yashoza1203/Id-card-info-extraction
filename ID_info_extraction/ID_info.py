@@ -217,7 +217,8 @@ if submit:
         data['Attending Date'] = pd.to_datetime(data['Attending Date'], format="%Y-%m-%d").dt.strftime("%d %b %y")
         data['Attending Date'] = data['Attending Date'].astype(str)
         
-        data['Attending Time'] = pd.to_datetime(data['Attending Time'], format="%H:%M:%S")
+        data['Attending Time'] = pd.to_datetime(data['Attending Time'], format="%H:%M:%S").dt.strftime("%H %M %S")
+        data['Attending Time'] = data['Attending Time'].astype(str)
         
         st.subheader('Raw data')
         data = data.style.format(thousands='')
