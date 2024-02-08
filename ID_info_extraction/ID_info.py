@@ -178,9 +178,7 @@ class ID_EXTRACT:
 
 start_time = time.time()
 
-import os
-tesseract_cmd = os.path.join(os.path.dirname(__file__), "path", "to", "tesseract")
-st.sidebar.write(tesseract_cmd)
+st.sidebar.write(tesseract.find_tesseract_binary())
 
 idd = ID_EXTRACT(tesseract_cmd)
 
