@@ -214,7 +214,8 @@ if submit:
         
         data = pd.read_csv(csv_path,parse_dates=['Attending Date','Attending Time'],index_col=0)
         data.drop(data.filter(regex="Unname"),axis=1, inplace=True)
-        data['Attending Date'] = pd.to_datetime(data['Attending Date'], format="%d/%m/%Y")
+        # data['Attending Date'] = pd.to_datetime(data['Attending Date'], format="%d/%m/%Y")
+        data['Attending Date'].apply(datetime.strftime, format='%d%m%Y')
         data['Attending Time'] = pd.to_datetime(data['Attending Time'], format="%H:%M:%S")
         
         st.subheader('Raw data')
