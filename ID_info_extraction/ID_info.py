@@ -210,7 +210,7 @@ if submit:
         img_path = query_image.name
         img_path = 'static/' + img_path
 
-        idd.main(new_image,file_path)
+        idd.main(image,file_path)
         data = pd.read_csv(csv_path,parse_dates=['Attending Date','Attending Time'],index_col=0)
         data.drop(data.filter(regex="Unname"),axis=1, inplace=True)
         st.subheader('Raw data')
