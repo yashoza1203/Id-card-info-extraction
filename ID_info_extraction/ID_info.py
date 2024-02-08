@@ -18,8 +18,7 @@ import shutil
 
 class ID_EXTRACT:
     def __init__(self,tesseract_cmd):
-        # pytesseract.pytesseract.tesseract_cmd = r'/usr/bin/tesseract'
-        pytesseract.pytesseract.tesseract_cmd = r'C:/Program Files/Tesseract-OCR/tesseract.exe'
+        pytesseract.pytesseract.tesseract_cmd = r'/usr/bin/tesseract'
         self.sift = cv2.SIFT_create()
         self.characters_to_remove = ['|', '\n', 'i','i\n']
 
