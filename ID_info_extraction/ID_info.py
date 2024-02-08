@@ -59,7 +59,7 @@ class ID_EXTRACT:
     def get_thresh(self,img):
         gray_image = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
         _, binary_image = cv2.threshold(gray_image, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
-        result = 255 - thresh
+        result = 255 - binary_image
         return result
 
     def img2text(self,img):
