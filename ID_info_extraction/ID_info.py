@@ -209,9 +209,10 @@ if submit:
 
         idd.main(image,file_path)
         pd.to_datetime("20/01/2023", format="%d/%m/%Y") 
-        df.tz_localize('IST')
         
         data = pd.read_csv(csv_path,parse_dates=['Attending Date','Attending Time'],index_col=0)
+        data.tz_localize('IST')
+
         data.drop(data.filter(regex="Unname"),axis=1, inplace=True)
         st.subheader('Raw data')
         data = data.style.format(thousands='')
