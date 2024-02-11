@@ -208,8 +208,8 @@ if submit:
 
         # file_bytes = np.asarray(bytearray(image), dtype=np.uint8)
         cvimage = cv2.imdecode(npimage, 1)
-        st.write(type(cvimage))
-        new_image = cvimage.resize((512, 512))
+        # st.write(type(cvimage))
+        new_image = cvimage #.resize((512, 512))
         st.sidebar.markdown('ID')
         
         st.sidebar.image(new_image,channels="BGR")
