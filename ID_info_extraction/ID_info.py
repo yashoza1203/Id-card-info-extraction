@@ -201,7 +201,8 @@ if submit:
         folder_path = folder_path + '/'
         file_path = idd.create_csv_file(folder_path,file_name)
         csv_path = os.getcwd().replace('\\','/') + '/static/' + file_name
-        image = Image.open(query_image)
+        # image = Image.open(query_image)
+        image = query_image.read()
         new_image = image.resize((512, 512))
         st.sidebar.markdown('ID')
         
