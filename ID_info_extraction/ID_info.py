@@ -201,15 +201,8 @@ if submit:
         folder_path = folder_path + '/'
         file_path = idd.create_csv_file(folder_path,file_name)
         csv_path = os.getcwd().replace('\\','/') + '/static/' + file_name
-        # image = Image.open(query_image)
-        
-        image = query_image.read()
-        npimage = np.asarray(bytearray(image)) #dtype=np.uint8)
-
-        # file_bytes = np.asarray(bytearray(image), dtype=np.uint8)
-        cvimage = cv2.imdecode(npimage, 1)
-        # st.write(type(cvimage))
-        new_image = cvimage #.resize((512, 512))
+        image = Image.open(query_image)
+        new_image = cvimage.resize((512, 512))
         st.sidebar.markdown('ID')
         
         st.sidebar.image(new_image,channels="BGR")
