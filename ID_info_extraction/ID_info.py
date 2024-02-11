@@ -201,10 +201,11 @@ if submit:
         folder_path = folder_path + '/'
         file_path = idd.create_csv_file(folder_path,file_name)
         csv_path = os.getcwd().replace('\\','/') + '/static/' + file_name
-        image = Image.open(query_image)
-        image = np.array(image)
+        # image = Image.open(query_image)
         
-        # image = query_image.read()
+        image = query_image.read()
+        image = np.array(image)
+
         # file_bytes = np.asarray(bytearray(image), dtype=np.uint8)
         # image = cv2.imdecode(file_bytes, 1)
 
