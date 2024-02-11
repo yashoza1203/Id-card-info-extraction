@@ -203,10 +203,10 @@ if submit:
         csv_path = os.getcwd().replace('\\','/') + '/static/' + file_name
         image = Image.open(query_image)
         image = np.array(image)
+        
         # image = query_image.read()
         # file_bytes = np.asarray(bytearray(image), dtype=np.uint8)
-        
-        image = cv2.imdecode(file_bytes, 1)
+        # image = cv2.imdecode(file_bytes, 1)
 
         new_image = image.resize((512, 512))
         st.sidebar.markdown('ID')
