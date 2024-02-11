@@ -184,7 +184,7 @@ start_time = time.time()
 idd = ID_EXTRACT()
 
 st.title("Extract details from ID")
-st.markdown("## By:- Dev, Yash and Rushank 🤘")
+st.markdown("## By:- Yash Oza, Dev. G and Rushank Shah 🤘")
 
 file_name  = st.text_input('Enter the File Name where you want to store the details:', 'id_details.csv')
 st.write('The current file is', file_name)
