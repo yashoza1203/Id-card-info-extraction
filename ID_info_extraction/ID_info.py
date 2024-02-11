@@ -189,12 +189,14 @@ st.markdown("## By:- Dev, Yash and Rushank 🤘")
 file_name  = st.text_input('Enter the File Name where you want to store the details:', 'id_details.csv')
 st.write('The current file is', file_name)
 
-query_image = st.file_uploader('Choose an ID',type=['.jpg','.jpeg'])
+option = st.selectbox('Select option to give input?', ('Upload files (suggested to use with laptop/PC)', 'Camera Input (suggested to use with phone)'))
 
-query_image = st.camera_input('cam')
+if 'Camera' in option:
+    query_image = st.camera_input('cam')
+else:
+    query_image = st.file_uploader('Choose an ID',type=['.jpg','.jpeg'])
 
 submit = st.button('Extract Information')
-# st.write(query_image.read())
 
 if submit:
     if query_image is not None:
