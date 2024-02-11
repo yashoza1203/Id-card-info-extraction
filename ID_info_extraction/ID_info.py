@@ -204,10 +204,11 @@ if submit:
         # image = Image.open(query_image)
         
         image = query_image.read()
+        image = np.asarray(bytearray(image), dtype=np.uint8)
         # image = np.array(image)
 
         # file_bytes = np.asarray(bytearray(image), dtype=np.uint8)
-        # image = cv2.imdecode(file_bytes, 1)
+        image = cv2.imdecode(image, 1)
 
         new_image = image.resize((512, 512))
         st.sidebar.markdown('ID')
