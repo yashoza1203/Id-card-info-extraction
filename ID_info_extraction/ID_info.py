@@ -204,7 +204,7 @@ if submit:
         # image = Image.open(query_image)
         
         image = query_image.read()
-        npimage = np.asarray(bytearray(image), dtype=np.uint8)
+        npimage = np.asarray(bytearray(image)) #dtype=np.uint8)
 
         # file_bytes = np.asarray(bytearray(image), dtype=np.uint8)
         cvimage = cv2.imdecode(npimage, 1)
