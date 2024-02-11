@@ -205,7 +205,7 @@ if submit:
         st.sidebar.markdown('ID')
         new_image = np.array(new_image)
 
-        st.sidebar.image(new_image,channels="BGR")
+        st.sidebar.image(new_image)
         st.sidebar.write("Filename: ", query_image.name)
         img_path = query_image.name
         img_path = 'static/' + img_path
