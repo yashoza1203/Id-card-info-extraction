@@ -139,7 +139,6 @@ class ID_EXTRACT:
         ist = pytz.timezone("Asia/Kolkata")
         now=datetime.datetime.now(ist)
         current_date=now.strftime('%x')
-        st.write(current_date)
         current_time=now.strftime('%X')
         if student_data[4] != 0:
             course_start=int(student_data[4][0:4])
