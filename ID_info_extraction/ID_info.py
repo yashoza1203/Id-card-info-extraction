@@ -203,7 +203,7 @@ if submit:
         image = Image.open(query_image)
         new_image = image.resize((512, 512))
         st.sidebar.markdown('ID')
-        # new_image = np.array(new_image)
+        new_image = np.array(new_image)
 
         st.sidebar.image(new_image)
         st.sidebar.write("Filename: ", query_image.name)
