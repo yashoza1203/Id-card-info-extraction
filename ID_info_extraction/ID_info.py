@@ -190,6 +190,9 @@ file_name  = st.text_input('Enter the File Name where you want to store the deta
 st.write('The current file is', file_name)
 
 query_image = st.file_uploader('Choose an ID',type=['.jpg','.jpeg'])
+
+query_image = st.camera_input('cam')
+
 submit = st.button('Extract Information')
 # st.write(query_image.read())
 
