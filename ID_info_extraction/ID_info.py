@@ -202,7 +202,7 @@ if submit:
         file_path = idd.create_csv_file(folder_path,file_name)
         csv_path = os.getcwd().replace('\\','/') + '/static/' + file_name
         image = Image.open(query_image)
-        new_image = cvimage.resize((512, 512))
+        new_image = image.resize((512, 512))
         st.sidebar.markdown('ID')
         
         st.sidebar.image(new_image,channels="BGR")
